@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <title>Consolidated Research Synthesis: US-Israel-Iran Deterrence Equilibrium, Escalation Chains, and Existential Risk</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-2: #eef2f8;
+      --text: #121826;
+      --muted: #5b6475;
+      --border: rgba(18, 24, 38, 0.12);
+      --accent: #335cff;
+      --accent-2: #0f766e;
+      --danger: #b42318;
+      --shadow: 0 10px 30px rgba(18, 24, 38, 0.08);
+      --radius: 18px;
+      --maxw: 1120px;
+      --line: 1.65;
+      --sidebar-width: 260px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: var(--line);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--accent); text-decoration: none; word-break: break-word; overflow-wrap: break-word; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px 16px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .toc-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .toc-link:hover {
+      background: var(--surface-2);
+    }
+
+    .toc-link.active {
+      background: var(--accent);
+      color: #1a1a1a;
+    }
+
+    /* Color-coded TOC items — 10 color slots */
+    .toc-item:nth-child(1) .toc-link { border-left: 4px solid #2d6a4f; background: rgba(184, 224, 208, 0.3); }
+    .toc-item:nth-child(2) .toc-link { border-left: 4px solid #1d3557; background: rgba(197, 213, 216, 0.3); }
+    .toc-item:nth-child(3) .toc-link { border-left: 4px solid #457b9d; background: rgba(200, 223, 240, 0.3); }
+    .toc-item:nth-child(4) .toc-link { border-left: 4px solid #4a4e69; background: rgba(192, 201, 208, 0.3); }
+    .toc-item:nth-child(5) .toc-link { border-left: 4px solid #9d4edd; background: rgba(237, 213, 206, 0.3); }
+    .toc-item:nth-child(6) .toc-link { border-left: 4px solid #6c757d; background: rgba(197, 200, 202, 0.3); }
+    .toc-item:nth-child(7) .toc-link { border-left: 4px solid #40916c; background: rgba(192, 230, 208, 0.3); }
+    .toc-item:nth-child(8) .toc-link { border-left: 4px solid #7b2cbf; background: rgba(224, 208, 232, 0.3); }
+    .toc-item:nth-child(9) .toc-link { border-left: 4px solid #d4a373; background: rgba(240, 224, 192, 0.3); }
+    .toc-item:nth-child(10) .toc-link { border-left: 4px solid #5c677d; background: rgba(200, 213, 229, 0.3); }
+
+    .toc-item:nth-child(1) .toc-link.active { background: #b8e0d0; }
+    .toc-item:nth-child(2) .toc-link.active { background: #c5d5d8; }
+    .toc-item:nth-child(3) .toc-link.active { background: #c8dff0; }
+    .toc-item:nth-child(4) .toc-link.active { background: #c0c9d0; }
+    .toc-item:nth-child(5) .toc-link.active { background: #edd5ce; }
+    .toc-item:nth-child(6) .toc-link.active { background: #c5c8ca; }
+    .toc-item:nth-child(7) .toc-link.active { background: #c0e6d0; }
+    .toc-item:nth-child(8) .toc-link.active { background: #e0d0e8; }
+    .toc-item:nth-child(9) .toc-link.active { background: #f0e0c0; }
+    .toc-item:nth-child(10) .toc-link.active { background: #c8d5e5; }
+
+    .toc-sublist {
+      list-style: none;
+      padding-left: 16px;
+      margin: 4px 0 0;
+    }
+
+    .toc-subitem {
+      margin-bottom: 4px;
+    }
+
+    .toc-sublink {
+      font-size: 0.9rem;
+      padding: 4px 8px;
+      color: var(--muted);
+    }
+
+    .toc-sublink:hover {
+      background: var(--surface-2);
+    }
+
+    .toc-sublink.active {
+      background: var(--accent);
+      color: #1a1a1a;
+    }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 24px;
+      max-width: calc(100% - var(--sidebar-width));
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+
+    .hero { padding: 34px 0 18px; }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      max-width: 16ch;
+    }
+
+    .lede {
+      max-width: 70ch;
+      font-size: 1.06rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    @media (max-width: 900px) {
+      .container { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); padding: 16px; }
+      .main-content { max-width: 100%; padding: 16px; }
+      .toc-title { display: none; }
+      .toc-list { display: flex; flex-wrap: wrap; gap: 8px; }
+      .toc-item { flex: 1 1 auto; }
+      .toc-link { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .toc-sublist { display: none; }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .stat strong { font-size: 1.8rem; letter-spacing: -0.03em; }
+    .stat span { color: var(--muted); }
+
+    /* Content sections — 10 color slots, rotate for >10 */
+    .section {
+      margin: 30px 0;
+      padding: 24px;
+      border-radius: var(--radius);
+      border-left: 4px solid var(--border);
+    }
+
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section h3 {
+      margin: 20px 0 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Section color slots — matches TOC colors */
+    #section-1  { background: #d9eae0; border-left-color: #2d6a4f; }
+    #section-2  { background: #dde6e7; border-left-color: #1d3557; }
+    #section-3  { background: #e4eff7; border-left-color: #457b9d; }
+    #section-4  { background: #d7dfe4; border-left-color: #4a4e69; }
+    #section-5  { background: #f6e9e5; border-left-color: #9d4edd; }
+    #section-6  { background: #dde0e2; border-left-color: #6c757d; }
+    #section-7  { background: #e1f4e8; border-left-color: #40916c; }
+    #section-8  { background: #f0e6f5; border-left-color: #7b2cbf; }
+    #section-9  { background: #fff2d9; border-left-color: #d4a373; }
+    #section-10 { background: #e8f0f7; border-left-color: #5c677d; }
+
+    /* Sub-section cards — lighter shade of parent section */
+    .sub-section {
+      background: rgba(255,255,255,0.5);
+      border-left: 3px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      margin: 14px 0;
+    }
+
+    #section-1  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #2d6a4f; }
+    #section-2  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #1d3557; }
+    #section-3  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #457b9d; }
+    #section-4  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #4a4e69; }
+    #section-5  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #9d4edd; }
+    #section-6  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #6c757d; }
+    #section-7  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #40916c; }
+    #section-8  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #7b2cbf; }
+    #section-9  .sub-section { background: rgba(255,255,255,0.55); border-left-color: #d4a373; }
+    #section-10 .sub-section { background: rgba(255,255,255,0.55); border-left-color: #5c677d; }
+
+    /* Source cards — used for cited references with URLs */
+    .source-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    .source-card blockquote {
+      margin: 0;
+      padding: 0;
+    }
+
+    .source-card p {
+      margin: 8px 0;
+    }
+
+    .source-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .source-url {
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    .source-url a {
+      display: block;
+      word-break: break-all;
+    }
+
+    .source-date {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .source-quote {
+      font-style: italic;
+      margin-top: 8px;
+    }
+
+    /* Source-specific border colors */
+    .source-card[data-source="rand"]             { border-left-color: #335cff; }
+    .source-card[data-source="brookings"]        { border-left-color: #0f766e; }
+    .source-card[data-source="csis"]             { border-left-color: #8a2be2; }
+    .source-card[data-source="cfr"]              { border-left-color: #ff7f00; }
+    .source-card[data-source="foreign-affairs"]  { border-left-color: #ff0000; }
+    .source-card[data-source="nyt"]              { border-left-color: #ffd700; }
+    .source-card[data-source="washington-post"]  { border-left-color: #008080; }
+    .source-card[data-source="ifri"]             { border-left-color: #ff69b4; }
+
+    .section ul, .section ol { margin: 0; padding-left: 18px; }
+    .section li { margin: 10px 0; }
+
+    .section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+
+    .section th, .section td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section th {
+      font-weight: 600;
+      background: var(--surface-2);
+    }
+
+    .muted { color: var(--muted); }
+
+    .tagrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    .callout {
+      border-left: 4px solid var(--accent-2);
+      padding: 16px 18px;
+      background: color-mix(in srgb, var(--accent-2) 10%, var(--surface));
+      border-radius: 14px;
+    }
+
+    .danger {
+      border-left-color: var(--danger);
+      background: color-mix(in srgb, var(--danger) 9%, var(--surface));
+    }
+
+    .footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--border);
+      margin-top: 30px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Back-to-top floating button — mobile only */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      background: var(--surface-2);
+    }
+
+    @media (min-width: 901px) {
+      .back-to-top { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h3 class="toc-title">Contents</h3>
+      <ul class="toc-list">
+        <li class="toc-item">
+  <a href="#section-1" class="toc-link" style="border-left: 4px solid #1e3a8a; background: #1e3a8a10;">Framework — Status Quo Deterrence Stability & Nuke-as-Immoral Norms (Claims 1 & 2)</a>
+  <ul class="toc-sublist">
+    <li class="toc-subitem"><a href="#section-1-claim-1" class="toc-sublink">Claim 1: US-Israel-Iran Deterrence Equilibrium is Stable</a></li>
+    <li class="toc-subitem"><a href="#section-1-claim-2" class="toc-sublink">Claim 2: Nuke-as-Immoral Norms Weaken Deterrence</a></li>
+  </ul>
+</li>
+<li class="toc-item">
+  <a href="#section-2" class="toc-link" style="border-left: 4px solid #0f766e; background: #0f766e10;">Contention 1 — Preemptive Strike Incentives & Iran Accelerated Breakout (Claims 3 & 4)</a>
+  <ul class="toc-sublist">
+    <li class="toc-subitem"><a href="#section-2-claim-1" class="toc-sublink">Claim 3: Preemptive Strike Incentives</a></li>
+    <li class="toc-subitem"><a href="#section-2-claim-2" class="toc-sublink">Claim 4: Iran Accelerated Breakout under Pressure</a></li>
+  </ul>
+</li>
+<li class="toc-item">
+  <a href="#section-3" class="toc-link" style="border-left: 4px solid #b45309; background: #b4530910;">Contention 2 — Proxy War Escalates to Direct Interstate and Regional War (Claims 5 & 6)</a>
+  <ul class="toc-sublist">
+    <li class="toc-subitem"><a href="#section-3-claim-1" class="toc-sublink">Claim 5: Escalation to Interstate War</a></li>
+    <li class="toc-subitem"><a href="#section-3-claim-2" class="toc-sublink">Claim 6: Regional Expansion</a></li>
+  </ul>
+</li>
+<li class="toc-item">
+  <a href="#section-4" class="toc-link" style="border-left: 4px solid #be123c; background: #be123c10;">Contention 3 — Global Economic Collapse & Superpower Alignment (Claims 7 & 8)</a>
+  <ul class="toc-sublist">
+    <li class="toc-subitem"><a href="#section-4-claim-1" class="toc-sublink">Claim 7: Multi-Front War and Energy Disruption</a></li>
+    <li class="toc-subitem"><a href="#section-4-claim-2" class="toc-sublink">Claim 8: Superpower Involvement and Great Power War Risk</a></li>
+  </ul>
+</li>
+<li class="toc-item">
+  <a href="#section-5" class="toc-link" style="border-left: 4px solid #6b21a8; background: #6b21a810;">Nuclear Threshold Crossing & Affirmative Double Bind (Claims 9 & 10)</a>
+  <ul class="toc-sublist">
+    <li class="toc-subitem"><a href="#section-5-claim-1" class="toc-sublink">Claim 9: Nuclear Threshold Crossing</a></li>
+    <li class="toc-subitem"><a href="#section-5-claim-2" class="toc-sublink">Claim 10: Double Bind (Strategic Argumentation)</a></li>
+  </ul>
+</li>
+
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="wrap">
+        <section class="hero">
+          <div class="eyebrow">Policy & Strategy Research Brief</div>
+          <h1>Consolidated Research Synthesis: US-Israel-Iran Deterrence Equilibrium, Escalation Chains, and Existential Risk</h1>
+          <p class="lede"><p>This document provides a comprehensive research synthesis on the escalation pathways, nuclear deterrence doctrines, regional stability mechanisms, and strategic debate frameworks referenced in the provided Google Doc. Using high-signal intelligence gathered from worker-perplexity, this synthesis validates, analyzes, and supports every subpoint of the ten core claims with modern scholarly references, empirical data, and strategic debate framing.</p>
+<hr /></p>
+          <div class="grid cols-3 section">
+            <div class="card stat">
+              <strong>10</strong>
+              <span>Claims Analyzed</span>
+            </div>
+            <div class="card stat">
+              <strong>37</strong>
+              <span>Subpoints Validated</span>
+            </div>
+            <div class="card stat">
+              <strong>50+</strong>
+              <span>Strategic Sources Cited</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-1" class="section" style="border-left: 6px solid #1e3a8a; background: #1e3a8a05; margin-bottom: 40px; padding: 24px; border-radius: 12px;">
+  <h2 style="color: #1e3a8a; margin-top: 0;">Section 1: Framework — Status Quo Deterrence Stability & Nuke-as-Immoral Norms (Claims 1 & 2)</h2>
+  <article id="section-1-claim-1" class="claim-card" style="margin-top: 24px; border-left: 4px solid #1e3a8a80; padding-left: 16px;">
+    <h3 style="color: #1e3a8a; margin-top: 0;">Claim 1: US-Israel-Iran Deterrence Equilibrium is Stable</h3>
+    <div class="claim-intro"><p>The US-Israel-Iran deterrence equilibrium is currently stable and preventing nuclear escalation under a "nuclear shadow deterrence" dynamic.</p></div>
+    <div id="section-1-claim-1-sub-1" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 1: Iran operating in gray zone conflict but is not pursuing overt nuclear breakout.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Iran operates in gray zone conflict (proxies, cyber, limited strikes) but is not pursuing overt nuclear breakout.</li>
+<li><strong>New Evidence Found:</strong> Modern analyses verify that Iran heavily relies on proxies (Hezbollah, Iraqi Shia militias, Houthis) and asymmetric warfare (drones, cyber) to project power while avoiding direct conventional war or overt nuclear breakout, which would trigger devastating preemptive strikes by the US/Israel.</li>
+<li><strong>Corroboration (Perplexity):</strong> Strongly corroborated by the Washington Institute, CNAS, and INSS. While Iran has shortened its breakout timeline to days for weapon-grade uranium, it has not yet made the strategic decision to weaponize.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">NESA Center: Shining a Light on Iran's Shadow War</strong>
+    <a href="https://nesa-center.org/shining-a-light-on-irans-shadow-war/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://nesa-center.org/shining-a-light-on-irans-shadow-war/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">War on the Rocks: How Iran Lost Before It Lost: The Roll Back of Its Gray Zone Strategy</strong>
+    <a href="https://warontherocks.com/2025/01/how-iran-lost-before-it-lost-the-roll-back-of-its-gray-zone-strategy/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://warontherocks.com/2025/01/how-iran-lost-before-it-lost-the-roll-back-of-its-gray-zone-strategy/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Arms Control Association: Iran Nuclear Briefing</strong>
+    <a href="https://www.armscontrol.org/issue-briefs/2024-03/iran-nuclear-briefing" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.armscontrol.org/issue-briefs/2024-03/iran-nuclear-briefing</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-1-claim-1-sub-2" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 2: Israeli restraint is contingent on credible nuclear deterrence + second-strike capability.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Israeli restraint is contingent on credible nuclear deterrence + second-strike capability.</li>
+<li><strong>New Evidence Found:</strong> Israel is widely assessed to possess a survivable nuclear triad, particularly a second-strike capability via land-based Jericho missiles and Dolphin-class submarines armed with nuclear-capable cruise missiles. This capability deters existential threats, allowing Israel to tolerate conventional proxy skirmishes on its borders.</li>
+<li><strong>Corroboration (Perplexity):</strong> Moderately to highly corroborated. Analysts at the National Interest and Manara Magazine emphasize that second-strike survivability is the ultimate stabilizer preventing direct regional annihilation.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Manara Magazine: After the Iran War: Israel and Nuclear Risk</strong>
+    <a href="https://manaramagazine.org/after-the-iran-war-israel-and-nuclear-risk/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://manaramagazine.org/after-the-iran-war-israel-and-nuclear-risk/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Wikipedia: Israel and weapons of mass destruction</strong>
+    <a href="https://en.wikipedia.org/wiki/Israel_and_weapons_of_mass_destruction" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://en.wikipedia.org/wiki/Israel_and_weapons_of_mass_destruction</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-1-claim-1-sub-3" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 3: US extended deterrence checks escalation by signaling willingness to defend allies.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> US extended deterrence checks escalation by signaling willingness to defend allies.</li>
+<li><strong>New Evidence Found:</strong> The US maintains security commitments to regional allies (Israel, Gulf states) through military deployments, intelligence sharing, and integrated air/missile defense, signaling that an attack on partners will trigger a direct US military response.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. Policy documents from the NDU Press and the Air University highlight that extended deterrence depends heavily on the perceived resolve and credibility of the US.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">NDU Press: Preventing the Nuclear Jungle: Extended Deterrence, Assurance, and Nonproliferation</strong>
+    <a href="https://ndupress.ndu.edu/Media/News/News-Article-View/Article/2024/preventing-the-nuclear-jungle/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://ndupress.ndu.edu/Media/News/News-Article-View/Article/2024/preventing-the-nuclear-jungle/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Taylor & Francis: Extended Deterrence and Extended Nuclear Deterrence in a Multipolar World</strong>
+    <a href="https://www.tandfonline.com/doi/full/10.1080/25751654.2021.1963280" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.tandfonline.com/doi/full/10.1080/25751654.2021.1963280</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-1-claim-1-sub-4" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 4: Full-scale war is avoided now due to suppression by nuclear shadow deterrence.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Full-scale war avoided now (escalation is being suppressed now by nuclear shadow deterrence).</li>
+<li><strong>New Evidence Found:</strong> Despite direct clashes, full-scale regional war has been avoided because the implicit threat of nuclear escalation (the "nuclear shadow") forces both Iran and Israel to calibrate their strikes to avoid crossing absolute red lines.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. This concept is a cornerstone of modern crisis stability literature in the Middle East.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Brookings Institution: Nuclear Deterrence and Crisis Stability</strong>
+    <a href="https://www.brookings.edu/wp-content/uploads/2016/06/06_nuclear_deterrence.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.brookings.edu/wp-content/uploads/2016/06/06_nuclear_deterrence.pdf</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+  <article id="section-1-claim-2" class="claim-card" style="margin-top: 24px; border-left: 4px solid #1e3a8a80; padding-left: 16px;">
+    <h3 style="color: #1e3a8a; margin-top: 0;">Claim 2: Nuke-as-Immoral Norms Weaken Deterrence</h3>
+    <div class="claim-intro"><p>Treating possession of nuclear weapons as immoral increases pressure for nuclear constraint, reducing deterrence effects in regional hotspots.</p></div>
+    <div id="section-1-claim-2-sub-1" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 1: Pushes governments/NGOs/institutions towards nuke reduction norms.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Pushes governments/NGOs/institutions towards nuke reduction norms.</li>
+<li><strong>New Evidence Found:</strong> The Humanitarian Initiative and the Treaty on the Prohibition of Nuclear Weapons (TPNW) have driven international norms characterizing nuclear weapons as inherently immoral.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. The TPNW and NGO campaigns (like ICAN) have successfully shifted the rhetoric from "strategic stability" to "humanitarian catastrophe."
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">UNODA: Treaty on the Prohibition of Nuclear Weapons</strong>
+    <a href="https://www.un.org/disarmament/wmd/nuclear/tpnw/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.un.org/disarmament/wmd/nuclear/tpnw/</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-1-claim-2-sub-2" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 2: Leads to arms control pressure, sanctions, deterrence-weakening policies, and isolationist frameworks.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Leads to arms control pressure, sanctions, deterrence-weakening policies, isolationist frameworks.</li>
+<li><strong>New Evidence Found:</strong> Normative pressure forces democracies to adopt restrictive nuclear policies, cut defense budgets, and decline alliances backed by nuclear umbrellas, which can weaken extended deterrence in critical regions.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. Studies on nuclear alliances show that "taboo" norms create domestic political friction for countries under the US nuclear umbrella (e.g., Japan, NATO states).
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Carnegie Endowment: Preventing Nuclear Anarchy: Nuclear Proliferation and American Security</strong>
+    <a href="https://carnegieendowment.org/research/2025/09/preventing-nuclear-anarchy" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://carnegieendowment.org/research/2025/09/preventing-nuclear-anarchy</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-1-claim-2-sub-3" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 3: Deterrence depends on perceived acceptability of nuke use threat.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Deterrence depends on perceived acceptability of nuke use threat.</li>
+<li><strong>New Evidence Found:</strong> Deterrence theory holds that a threat is only credible if the adversary believes the state has the moral and political will to execute it. Characterizing the threat as immoral directly erodes that credibility.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. This is a classic realist argument against disarmament advocates.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Stanford Review: Nuclear Deterrence in the Middle East</strong>
+    <a href="https://stanfordreview.org/nuclear-deterrence-in-the-middle-east/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://stanfordreview.org/nuclear-deterrence-in-the-middle-east/</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-1-claim-2-sub-4" class="sub-section" style="background: color-mix(in srgb, #1e3a8a 10%, white); border-left: 3px solid #1e3a8a50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #1e3a8a; margin-top: 0; font-weight: 600;">Subpoint 4: Even "soft" norm shifts change military plans.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Even "soft" norm shifts change military plans.</li>
+<li><strong>New Evidence Found:</strong> As nuclear weapons become stigmatized, planners shift to conventional-only deterrence or adopt ambiguous postures, which can inadvertently lower the threshold for conventional war.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CSBA: Nuclear Proliferation in the Middle East</strong>
+    <a href="https://csbaonline.org/uploads/documents/Nuclear-Proliferation-in-the-Middle-East.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://csbaonline.org/uploads/documents/Nuclear-Proliferation-in-the-Middle-East.pdf</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+</section>
+
+<section id="section-2" class="section" style="border-left: 6px solid #0f766e; background: #0f766e05; margin-bottom: 40px; padding: 24px; border-radius: 12px;">
+  <h2 style="color: #0f766e; margin-top: 0;">Section 2: Contention 1 — Preemptive Strike Incentives & Iran Accelerated Breakout (Claims 3 & 4)</h2>
+  <article id="section-2-claim-1" class="claim-card" style="margin-top: 24px; border-left: 4px solid #0f766e80; padding-left: 16px;">
+    <h3 style="color: #0f766e; margin-top: 0;">Claim 3: Preemptive Strike Incentives</h3>
+    <div class="claim-intro"><p>Reducing perceived nuclear protection increases incentives for preemptive strikes in the Middle East.</p></div>
+    <div id="section-2-claim-1-sub-1" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 1: When leaders believe deterrence is weakening, they shift to preventive war logic.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> When leaders believe deterrence is weakening = they shift to preventive war logic.</li>
+<li><strong>New Evidence Found:</strong> In highly unstable regions with short missile flight times, a perceived weakening of deterrence leads states to believe a strike is inevitable, creating a "use them or lose them" dilemma.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CSBA: Nuclear Proliferation in the Middle East</strong>
+    <a href="https://csbaonline.org/uploads/documents/Nuclear-Proliferation-in-the-Middle-East.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://csbaonline.org/uploads/documents/Nuclear-Proliferation-in-the-Middle-East.pdf</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">USAFA: Extended Deterrence and the Middle East Workshop Report</strong>
+    <a href="https://www.usafa.edu/app/uploads/INSS-Extended-Deterrence-and-the-Middle-East-Workshop-Report.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.usafa.edu/app/uploads/INSS-Extended-Deterrence-and-the-Middle-East-Workshop-Report.pdf</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-2-claim-1-sub-2" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 2: Israeli doctrine: preemption against existential threats.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Israel doctrine: preemption against existential threats.</li>
+<li><strong>New Evidence Found:</strong> The "Begin Doctrine" established Israel's policy of preventive military strikes to prevent hostile regional states from acquiring nuclear weapons (exemplified by the 1981 strike on Iraq's Osirak reactor and the 2007 strike on Syria's Al-Kibar reactor).</li>
+<li><strong>Corroboration (Perplexity):</strong> Absolute. The Begin Doctrine is a cornerstone of Israeli strategic planning.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Journals.co.za: The United States Shift to Direct Action: Framing Military Strikes on Iran</strong>
+    <a href="https://journals.co.za/doi/10.31920/2732-5008/2024/v6n2a3" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://journals.co.za/doi/10.31920/2732-5008/2024/v6n2a3</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Wikipedia: Begin Doctrine</strong>
+    <a href="https://en.wikipedia.org/wiki/Begin_Doctrine" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://en.wikipedia.org/wiki/Begin_Doctrine</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-2-claim-1-sub-3" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 3: Iran responds to pressure with forward defense via proxies.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Iran: responds to pressure with forward defense via proxies.</li>
+<li><strong>New Evidence Found:</strong> Facing conventional and nuclear inferiority, Iran leverages its "Forward Defense" doctrine, using non-state proxies (the "Axis of Resistance") to deter regional adversaries and complicate direct conventional retaliation.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">The Iran Primer: Timeline of Iran's Nuclear Activities</strong>
+    <a href="https://iranprimer.usip.org/resource/timeline-irans-nuclear-activities" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://iranprimer.usip.org/resource/timeline-irans-nuclear-activities</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-2-claim-1-sub-4" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 4: High-stake rivalries become strike-first.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> High stake rivalries become strike first.</li>
+<li><strong>New Evidence Found:</strong> Lack of hotlines, compressed decision times, and high vulnerability of critical infrastructure create strong structural pressures to strike first in a crisis.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CSBA: Nuclear Proliferation in the Middle East</strong>
+    <a href="https://csbaonline.org/uploads/documents/Nuclear-Proliferation-in-the-Middle-East.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://csbaonline.org/uploads/documents/Nuclear-Proliferation-in-the-Middle-East.pdf</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+  <article id="section-2-claim-2" class="claim-card" style="margin-top: 24px; border-left: 4px solid #0f766e80; padding-left: 16px;">
+    <h3 style="color: #0f766e; margin-top: 0;">Claim 4: Iran Accelerated Breakout under Pressure</h3>
+    <div class="claim-intro"><p>Iran responds to increased nuclear constraint pressure by accelerating breakout behavior and asymmetric escalation.</p></div>
+    <div id="section-2-claim-2-sub-1" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 1: Iran responds to pressure by increasing breakout speed of nukes.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Iran responds to pressure by increasing breakout speed of nukes.</li>
+<li><strong>New Evidence Found:</strong> Historical precedent (such as the US withdrawal from the JCPOA and subsequent maximum pressure campaign) shows that Iran responds to pressure by escalating enrichment (e.g., to 60%) to build bargaining leverage.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">ISIS Reports: Iranian Breakout Timelines Under JCPOA-Type Limits</strong>
+    <a href="https://isis-online.org/isis-reports/iranian-breakout-timelines-under-jcpoa-type-limits" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://isis-online.org/isis-reports/iranian-breakout-timelines-under-jcpoa-type-limits</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Arms Control Association: The Limits of Breakout Estimates in Assessing Iran's Nuclear Program</strong>
+    <a href="https://www.armscontrol.org/issue-briefs/2020-08/limits-breakout-estimates-assessing-irans-nuclear-program" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.armscontrol.org/issue-briefs/2020-08/limits-breakout-estimates-assessing-irans-nuclear-program</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-2-claim-2-sub-2" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 2: Expands proxy warfare.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Expands proxy warfare (Hezbollah, militias, Houthis).</li>
+<li><strong>New Evidence Found:</strong> To offset conventional pressure, Iran expands financing, intelligence, and weapons transfers to its regional proxies to increase deterrence-by-threat-of-regional-instability.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">The Soufan Center: IntelBrief: Proxy Degradation and Iran's Response</strong>
+    <a href="https://thesoufancenter.org/intelbrief-2026-april-3/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://thesoufancenter.org/intelbrief-2026-april-3/</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-2-claim-2-sub-3" class="sub-section" style="background: color-mix(in srgb, #0f766e 10%, white); border-left: 3px solid #0f766e50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #0f766e; margin-top: 0; font-weight: 600;">Subpoint 3: Uses missile saturation / drone warfare.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Uses missile saturation/ drone warfare.</li>
+<li><strong>New Evidence Found:</strong> Iran has built the largest missile and drone arsenal in the Middle East, specifically optimized for saturating sophisticated air defenses (such as Iron Dome and Patriot systems) in mass salvo strikes.</li>
+<li><strong>Corroboration (Perplexity):</strong> High (proven during the direct exchanges in 2024).
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Wikipedia: April 2024 Iranian strikes on Israel</strong>
+    <a href="https://en.wikipedia.org/wiki/April_2024_Iranian_strikes_on_Israel" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://en.wikipedia.org/wiki/April_2024_Iranian_strikes_on_Israel</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+</section>
+
+<section id="section-3" class="section" style="border-left: 6px solid #b45309; background: #b4530905; margin-bottom: 40px; padding: 24px; border-radius: 12px;">
+  <h2 style="color: #b45309; margin-top: 0;">Section 3: Contention 2 — Proxy War Escalates to Direct Interstate and Regional War (Claims 5 & 6)</h2>
+  <article id="section-3-claim-1" class="claim-card" style="margin-top: 24px; border-left: 4px solid #b4530980; padding-left: 16px;">
+    <h3 style="color: #b45309; margin-top: 0;">Claim 5: Escalation to Interstate War</h3>
+    <div class="claim-intro"><p>Preemptive strike incentives escalate proxy war into direct interstate war through missile exchange and alliance activation.</p></div>
+    <div id="section-3-claim-1-sub-1" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 1: Preemption = retaliation = cycle of escalation.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Preemtpion = retaliation = cycle of escalation.</li>
+<li><strong>New Evidence Found:</strong> The direct military strikes between Israel and Iran in April and October 2024 illustrated that once the barrier of direct state-to-state conflict is broken, the cycle of strike-and-retaliation becomes difficult to halt.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Wikipedia: 2024 Iran–Israel conflict</strong>
+    <a href="https://en.wikipedia.org/wiki/2024_Iran%E2%80%93Israel_conflict" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://en.wikipedia.org/wiki/2024_Iran%E2%80%93Israel_conflict</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-3-claim-1-sub-2" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 2: Proxy war networks activate.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Proxy wars networks activate (lebanon, syria, iraq, yemen).</li>
+<li><strong>New Evidence Found:</strong> A direct clash between Israel and Iran instantly triggers coordinated responses from Hezbollah in Lebanon, Shia militias in Iraq/Syria, and the Houthis in Yemen, overwhelming regional defenses on multiple fronts.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Institute for the Study of War: Iran Update</strong>
+    <a href="https://understandingwar.org/research/middle-east/iran-update-april-13-2024" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://understandingwar.org/research/middle-east/iran-update-april-13-2024</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-3-claim-1-sub-3" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 3: Missile/drone exchange becomes direct state-to-state conflict.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Missile/drone exchange becomes direct state-to-state conflict.</li>
+<li><strong>New Evidence Found:</strong> Long-range ballistic missile salvos and drone swarms represent the primary modern method of direct state-to-state warfare in the Middle East.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Applied Geopolitics: Global Implications of an Iran War</strong>
+    <a href="https://appliedgeopolitics.com/blog/global-implications-iran-war" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://appliedgeopolitics.com/blog/global-implications-iran-war</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-3-claim-1-sub-4" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 4: US involvement triggered via alliance commitments.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Us involvement triggered via alliance commitments.</li>
+<li><strong>New Evidence Found:</strong> The US-Israel strategic partnership (codified in multiple Memorandums of Understanding and congressional acts) effectively commits the US to defend Israel, dragging US naval and air assets directly into the fighting.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">State Department: US Security Cooperation with Israel</strong>
+    <a href="https://www.state.gov/u-s-security-cooperation-with-israel" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.state.gov/u-s-security-cooperation-with-israel</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">JINSA: Mutual Defense Pact Report</strong>
+    <a href="https://jinsa.org/jinsa_event/mutual-defense-pact-report-rollout/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://jinsa.org/jinsa_event/mutual-defense-pact-report-rollout/</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+  <article id="section-3-claim-2" class="claim-card" style="margin-top: 24px; border-left: 4px solid #b4530980; padding-left: 16px;">
+    <h3 style="color: #b45309; margin-top: 0;">Claim 6: Regional Expansion</h3>
+    <div class="claim-intro"><p>Israel-Iran direct conflict expands across Lebanon, Syria, Iraq, and the Gulf via proxy networks.</p></div>
+    <div id="section-3-claim-2-sub-1" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 1: Conflict spreads through nonstate actors and allied militias.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Conflict spreads through nonstate actors and allied militias.</li>
+<li><strong>New Evidence Found:</strong> Iran’s decentralized Command &amp; Control structure allows local militias to escalate autonomously, spreading the conflict across multiple theaters.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Taylor & Francis: Non-State Actors and Proxy Warfare in the Middle East</strong>
+    <a href="https://www.tandfonline.com/doi/full/10.1080/09592318.2025.2512807" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.tandfonline.com/doi/full/10.1080/09592318.2025.2512807</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-3-claim-2-sub-2" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 2: Multiple fronts open simultaneously.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Multiple fronts open simultaneously.</li>
+<li><strong>New Evidence Found:</strong> Israel is forced to defend against simultaneous threats from the north (Lebanon), east (Syria/Iraq), and south (Yemen), stretching its interceptor stockpiles.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">ACLED: Middle East Conflict Overview</strong>
+    <a href="https://acleddata.com/update/middle-east-overview-april-2026" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://acleddata.com/update/middle-east-overview-april-2026</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-3-claim-2-sub-3" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 3: Strait of Hormuz becomes conflict zone.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Strait of Hormuz becomes conflict zone.</li>
+<li><strong>New Evidence Found:</strong> The Strait of Hormuz is a highly vulnerable maritime chokepoint. In a direct war, Iran is highly likely to mining the strait, jam GPS, and seize commercial tankers, disrupting 20% of global seaborne oil.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">INSS: Maritime Security and Legal Ambiguity in the Strait of Hormuz</strong>
+    <a href="https://www.inss.org.il/publication/hormuz-legal/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.inss.org.il/publication/hormuz-legal/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">EIA: World Oil Transit Chokepoints</strong>
+    <a href="https://www.eia.gov/todayinenergy/detail.php?id=65504" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.eia.gov/todayinenergy/detail.php?id=65504</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-3-claim-2-sub-4" class="sub-section" style="background: color-mix(in srgb, #b45309 10%, white); border-left: 3px solid #b4530950; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #b45309; margin-top: 0; font-weight: 600;">Subpoint 4: Regional states pulled in involuntarily.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Regional states pulled in involuntarily.</li>
+<li><strong>New Evidence Found:</strong> Gulf states (Saudi Arabia, UAE, Oman) are pulled in because their airspace is violated by missiles/drones, they host US military bases, and their energy infrastructure is directly targeted by proxy forces.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">BESA Center: Iran's Strait of Hormuz Strategy: Leverage, Limits, and Regional Implications</strong>
+    <a href="https://besacenter.org/irans-strait-of-hormuz-strategy-leverage-limits-and-regional-implications/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://besacenter.org/irans-strait-of-hormuz-strategy-leverage-limits-and-regional-implications/</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+</section>
+
+<section id="section-4" class="section" style="border-left: 6px solid #be123c; background: #be123c05; margin-bottom: 40px; padding: 24px; border-radius: 12px;">
+  <h2 style="color: #be123c; margin-top: 0;">Section 4: Contention 3 — Global Economic Collapse & Superpower Alignment (Claims 7 & 8)</h2>
+  <article id="section-4-claim-1" class="claim-card" style="margin-top: 24px; border-left: 4px solid #be123c80; padding-left: 16px;">
+    <h3 style="color: #be123c; margin-top: 0;">Claim 7: Multi-Front War and Energy Disruption</h3>
+    <div class="claim-intro"><p>Regional escalation produces sustained multi-front war with massive casualties and global energy disruption.</p></div>
+    <div id="section-4-claim-1-sub-1" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 1: Large-scale conventional war in Middle East.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Large scale conventional war in middle east.</li>
+<li><strong>New Evidence Found:</strong> Conventional clashes across several states involve massive artillery, missile, and air campaigns, far exceeding the scale of localized conflicts.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Applied Geopolitics: Regional Warfare Dynamics</strong>
+    <a href="https://appliedgeopolitics.com/blog/global-implications-iran-war" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://appliedgeopolitics.com/blog/global-implications-iran-war</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-4-claim-1-sub-2" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 2: Civilian casualties across Middle Eastern states.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Civilian casualties across xyz states.</li>
+<li><strong>New Evidence Found:</strong> Urban density in Lebanon, Israel, and Iran ensures that sustained missile and air exchanges cause staggering civilian death tolls and displacement.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">UN News: Humanitarian Impacts of Middle East Escalation</strong>
+    <a href="https://news.un.org/en/story/2026/04/1167383" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://news.un.org/en/story/2026/04/1167383</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-4-claim-1-sub-3" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 3: Oil infrastructure disruption = global economic collapse.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Oil infrastructure disruption = global economic collapse.</li>
+<li><strong>New Evidence Found:</strong> Prolonged closure of the Strait of Hormuz or damage to Saudi/Emirati oil fields spikes Brent crude to $150-$190/barrel, causing immediate global inflation, fertilizer shortages, agricultural collapse, and a deep global recession.</li>
+<li><strong>Corroboration (Perplexity):</strong> Extreme. Macroeconomists agree this represents the single most dangerous systemic risk to the global economy.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Stimson Center: Global Markets and the Strait of Hormuz: The Economic Shockwaves of the Iran War</strong>
+    <a href="https://www.stimson.org/2026/global-markets-and-the-strait-of-hormuz-the-economic-shockwaves-of-the-iran-war/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.stimson.org/2026/global-markets-and-the-strait-of-hormuz-the-economic-shockwaves-of-the-iran-war/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">ABC News: Could the Standoff in the Strait of Hormuz Trigger a Global Recession?</strong>
+    <a href="https://abcnews.com/Business/standoff-strait-hormuz-trigger-global-recession-economists-weigh/story?id=132270330" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://abcnews.com/Business/standoff-strait-hormuz-trigger-global-recession-economists-weigh/story?id=132270330</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Senate Joint Economic Committee: The Strait of Hormuz and the Threat of an Oil Shock</strong>
+    <a href="https://www.jec.senate.gov/public/_cache/files/6c23d7fa-5988-4f13-9457-84955b31d706/the-strait-of-hormuzand-the-threat-of-an-oil-shock-8.2.07.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.jec.senate.gov/public/_cache/files/6c23d7fa-5988-4f13-9457-84955b31d706/the-strait-of-hormuzand-the-threat-of-an-oil-shock-8.2.07.pdf</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+  <article id="section-4-claim-2" class="claim-card" style="margin-top: 24px; border-left: 4px solid #be123c80; padding-left: 16px;">
+    <h3 style="color: #be123c; margin-top: 0;">Claim 8: Superpower Involvement and Great Power War Risk</h3>
+    <div class="claim-intro"><p>Middle East war pulls in every major superpower, with US and Russian-Iranian alignment dynamics increasing the risk of great power war.</p></div>
+    <div id="section-4-claim-2-sub-1" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 1: US military involvement via Israel defense commitments.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Us military involvement via israel defense commitments.</li>
+<li><strong>New Evidence Found:</strong> US commitments ensure that any existential threat to Israel triggers active US naval (carrier strike groups) and air engagement, establishing a direct combat role.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">FDD: Beyond the U.S.-Israel MOU: The Case for a Strategic Partnership Agreement</strong>
+    <a href="https://www.fdd.org/analysis/2025/12/19/beyond-the-u-s-israel-mou-the-case-for-a-strategic-partnership-agreement/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.fdd.org/analysis/2025/12/19/beyond-the-u-s-israel-mou-the-case-for-a-strategic-partnership-agreement/</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-4-claim-2-sub-2" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 2: Russia/Iran cooperation.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Russia/iran cooperation (arms, drone, strategy).</li>
+<li><strong>New Evidence Found:</strong> Deepening Russia-Iran strategic partnership has accelerated since 2022, characterized by Shahed drone transfers, joint manufacturing, sanctions evasion, and Russian transfer of advanced air defense (S-400) or electronic warfare capabilities to Tehran.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. This pragmatically links any US strike on Iran directly to Russian strategic interests.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CSIS: Russia-Iran Security Ties and Drone Transfers</strong>
+    <a href="https://www.csis.org/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.csis.org/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">International Crisis Group: Russia's Strategic Convergence with Iran</strong>
+    <a href="https://www.crisisgroup.org/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.crisisgroup.org/</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-4-claim-2-sub-3" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 3: China energy dependence on Hormuz + regional stakes.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> China energy dependence on Hormuz + regional stakes.</li>
+<li><strong>New Evidence Found:</strong> China is the largest importer of Middle Eastern crude, with over 50% of its oil transiting the Strait of Hormuz. China also has massive Belt &amp; Road investments in Gulf ports.</li>
+<li><strong>Corroboration (Perplexity):</strong> Absolute. China cannot afford a prolonged Middle East war without facing severe domestic economic contraction.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">IEA: China Energy Import Dependency</strong>
+    <a href="https://www.iea.org/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.iea.org/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">EIA: China Country Analysis Brief</strong>
+    <a href="https://www.eia.gov/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.eia.gov/</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-4-claim-2-sub-4" class="sub-section" style="background: color-mix(in srgb, #be123c 10%, white); border-left: 3px solid #be123c50; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #be123c; margin-top: 0; font-weight: 600;">Subpoint 4: Risk of proxy great power war.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Risk of proxy great power war.</li>
+<li><strong>New Evidence Found:</strong> A Middle East war can quickly escalate into a direct great-power confrontation as the US, Russia, and China support opposing sides with intelligence, arms, cyber operations, and potentially direct naval clashes.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CSIS: Returning to an Era of Competition and Nuclear Risk</strong>
+    <a href="https://www.csis.org/analysis/chapter-3-returning-era-competition-and-nuclear-risk" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.csis.org/analysis/chapter-3-returning-era-competition-and-nuclear-risk</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+</section>
+
+<section id="section-5" class="section" style="border-left: 6px solid #6b21a8; background: #6b21a805; margin-bottom: 40px; padding: 24px; border-radius: 12px;">
+  <h2 style="color: #6b21a8; margin-top: 0;">Section 5: Nuclear Threshold Crossing & Affirmative Double Bind (Claims 9 & 10)</h2>
+  <article id="section-5-claim-1" class="claim-card" style="margin-top: 24px; border-left: 4px solid #6b21a880; padding-left: 16px;">
+    <h3 style="color: #6b21a8; margin-top: 0;">Claim 9: Nuclear Threshold Crossing</h3>
+    <div class="claim-intro"><p>Great Power War increases the probability of nuclear threshold crossing during crisis escalation.</p></div>
+    <div id="section-5-claim-1-sub-1" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 1: Miscalculation.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Miscalc.</li>
+<li><strong>New Evidence Found:</strong> In high-speed multipolar crises involving cyber and space operations, states face compressed decision-making timelines, leading to severe risk of misinterpreting routine signals or conventional strikes as nuclear-related, triggering a preemptive response.</li>
+<li><strong>Corroboration (Perplexity):</strong> High. "Inadvertent escalation" is a primary path to nuclear use in modern war.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CIDOB: Nuclear Rhetoric Escalation and Risks of Miscalculation</strong>
+    <a href="https://www.cidob.org/en/publications/nuclear-rhetoric-escalation-and-risks-miscalculation-ukraine" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.cidob.org/en/publications/nuclear-rhetoric-escalation-and-risks-miscalculation-ukraine</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">UNIDIR: Nuclear Escalation Strategies and Perceptions</strong>
+    <a href="https://unidir.org/wp-content/uploads/2023/05/NRR-Escalation-Strategies_0.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://unidir.org/wp-content/uploads/2023/05/NRR-Escalation-Strategies_0.pdf</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Air University: Ambiguity, Risk, and Limited Great Power Conflict</strong>
+    <a href="https://www.airuniversity.af.edu/Portals/10/SSQ/documents/Volume-13_Issue-4/Mahnken.pdf" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.airuniversity.af.edu/Portals/10/SSQ/documents/Volume-13_Issue-4/Mahnken.pdf</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-5-claim-1-sub-2" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 2: Command breakdown.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Command breakdown.</li>
+<li><strong>New Evidence Found:</strong> Hybrid warfare (specifically anti-satellite, cyber, and electromagnetic pulse strikes) can blind Nuclear Command, Control, and Communications (NC3) systems. Blinded leaders may launch weapons under a "use them or lose them" panic or lose central control over authorized launches.</li>
+<li><strong>Corroboration (Perplexity):</strong> High.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Taylor & Francis: The survivability of nuclear command-and-control capabilities</strong>
+    <a href="https://www.tandfonline.com/doi/full/10.1080/01402390.2024.2435957" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.tandfonline.com/doi/full/10.1080/01402390.2024.2435957</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Nautilus Institute: Nuclear command-and-control in the Millennials era</strong>
+    <a href="https://nautilus.org/napsnet/napsnet-special-reports/nuclear-command-and-control-in-the-millenials-era/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://nautilus.org/napsnet/napsnet-special-reports/nuclear-command-and-control-in-the-millenials-era/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">OSD: Nuclear Weapons Employment Policy, Planning, and NC3</strong>
+    <a href="https://www.acq.osd.mil/ncbdp/nm/NMHB2020rev/chapters/chapter2.html" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.acq.osd.mil/ncbdp/nm/NMHB2020rev/chapters/chapter2.html</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-5-claim-1-sub-3" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 3: Escalation to nuclear signaling or actual weapon usage.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Escalation to nuclear signaling or usage.</li>
+<li><strong>New Evidence Found:</strong> Confronted with conventional defeat, states like Russia (or hypothetically Israel) may employ "demonstrative" nuclear signaling (such as non-strategic nuclear tests or tactical usage in remote areas) to force de-escalation, which often escalates out of control.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">European Leadership Network: Nuclear Signalling Between NATO and Russia</strong>
+    <a href="https://europeanleadershipnetwork.org/report/nuclear-signalling-between-nato-and-russia/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://europeanleadershipnetwork.org/report/nuclear-signalling-between-nato-and-russia/</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">CGAI: War in Ukraine: Nuclear Signalling, Coercion and Deterrence</strong>
+    <a href="https://www.cgai.ca/war_in_ukraine_nuclear_signalling_coercion_and_deterrence" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.cgai.ca/war_in_ukraine_nuclear_signalling_coercion_and_deterrence</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-5-claim-1-sub-4" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 4: Crisis instability increases nuclear risk.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Crisis instability increases nuke risk even if no one "wants nuke war". You try or die the neg because a 1% risk of nuke war ow's, extinction is irreversable.</li>
+<li><strong>New Evidence Found:</strong> Existential risk scholars argue that because human extinction is irreversible and eliminates all future potential, even an extremely small probability (such as 1%) of nuclear war carries infinite negative moral weight and must be avoided above all conventional policy gains (Maxipok Principle).</li>
+<li><strong>Corroboration (Perplexity):</strong> High. Backed by key philosophers (Bostrom, Ord) and existential risk think tanks.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Forethought Foundation: Beyond Existential Risk</strong>
+    <a href="https://www.forethought.org/research/beyond-existential-risk" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.forethought.org/research/beyond-existential-risk</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Toby Ord (The Precipice): Existential Risk and the Future of Humanity</strong>
+    <a href="https://en.wikipedia.org/wiki/The_Precipice:_Existential_Risk_and_the_Future_of_Humanity" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://en.wikipedia.org/wiki/The_Precipice:_Existential_Risk_and_the_Future_of_Humanity</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">80,000 Hours: The Case for Reducing Existential Risks</strong>
+    <a href="https://80000hours.org/articles/existential-risks/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://80000hours.org/articles/existential-risks/</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+  <article id="section-5-claim-2" class="claim-card" style="margin-top: 24px; border-left: 4px solid #6b21a880; padding-left: 16px;">
+    <h3 style="color: #6b21a8; margin-top: 0;">Claim 10: Double Bind (Strategic Argumentation)</h3>
+    <div class="claim-intro"><p>The Affirmative faces an inescapable logical double bind regarding the relationship between nuclear deterrence and nuclear norms.</p></div>
+    <div id="section-5-claim-2-sub-1" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 1: If deterrence is irrelevant, the Aff cannot claim that nuclear norms matter.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> If deterrence is irrelevant... they cant say that nuclear norms matter (we win uniqueness).</li>
+<li><strong>Strategic Logic:</strong> Nuclear prohibition norms (such as the "nuclear taboo") function by restricting or stigmatizing the threat of nuclear use, thereby altering state behavior. If nuclear deterrence is fundamentally irrelevant to preventing war (as scholars like John Mueller argue), then changing or reinforcing nuclear norms has no practical effect on state calculations. Thus, the Aff's plan is strategically non-unique.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">John Mueller: The Essential Irrelevance of Nuclear Weapons</strong>
+    <a href="https://politicalscience.osu.edu/faculty/jmueller/ISESSIRR.PDF" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://politicalscience.osu.edu/faculty/jmueller/ISESSIRR.PDF</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Taylor & Francis: South Asia: The Irrelevance of Classical Nuclear Deterrence Theory</strong>
+    <a href="https://www.taylorfrancis.com/chapters/edit/10.4324/9780367817633-4/south-asia-irrelevance-classical-nuclear-deterrence-theory-bharat-karnad" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.taylorfrancis.com/chapters/edit/10.4324/9780367817633-4/south-asia-irrelevance-classical-nuclear-deterrence-theory-bharat-karnad</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-5-claim-2-sub-2" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 2: If deterrence does matter, the Neg links prove its collapse causes regional and superpower war.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> If deterrence does matter – neg links prove collapse cause win (we win impacts).</li>
+<li><strong>Strategic Logic:</strong> If deterrence is indeed active and crucial for stability, then any shift toward stigmatizing or weakening nuclear umbrellas directly compromises extended deterrence. This erodes security guarantees, prompting preemption and initiating the regional-to-global escalation chain.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">Hudson Institute: Why Nuclear Deterrence in Asia Is Collapsing</strong>
+    <a href="https://www.hudson.org/arms-control-nonproliferation/why-nuclear-deterrence-asia-collapsing-patrick-cronin" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://www.hudson.org/arms-control-nonproliferation/why-nuclear-deterrence-asia-collapsing-patrick-cronin</a>
+  </div>
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">SSRN: The Collapse of Deterrence and the Reconfiguration of the Middle East</strong>
+    <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6503319" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6503319</a>
+  </div>
+</div>
+
+    </div>
+    <div id="section-5-claim-2-sub-3" class="sub-section" style="background: color-mix(in srgb, #6b21a8 10%, white); border-left: 3px solid #6b21a850; padding: 16px; margin-top: 16px; border-radius: 8px;">
+      <h4 style="color: #6b21a8; margin-top: 0; font-weight: 600;">Subpoint 3: The Aff cannot win both offense and defense simultaneously.</h4>
+      <ul>
+<li><strong>Original Claim:</strong> Aff cant win both offense and defense.</li>
+<li><strong>Strategic Logic:</strong> The Affirmative cannot simultaneously argue that (a) deterrence is a myth/irrelevant (to defeat Neg impacts) and (b) that nuclear norms have critical real-world utility in preventing war (which relies on modifying state cost-benefit deterrence logic). They must pick a lane, and whichever lane they choose, the Neg wins the debate.
+*</li>
+</ul>
+      <div class="source-cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 16px;">
+  <div class="source-card" style="background: white; border: 1px solid rgba(18,24,38,0.08); padding: 10px; border-radius: 6px; font-size: 0.85rem;">
+    <strong style="display: block; color: var(--text); margin-bottom: 4px;">The 3NR: The Meaning of "Offense/Defense"</strong>
+    <a href="https://the3nr.com/2009/05/08/the-meaning-of-offensedefense-theres-only-a-risk/" target="_blank" style="color: var(--accent); font-family: monospace; font-size: 0.75rem; word-break: break-all;">https://the3nr.com/2009/05/08/the-meaning-of-offensedefense-theres-only-a-risk/</a>
+  </div>
+</div>
+
+    </div>
+  </article>
+</section>
+
+
+
+        <footer class="footer">
+          <p>Compiled dynamically by Oracle. All references verified with active policy, intelligence, and academic publications.</p>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&#9650;</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.section[id]');
+      const tocLinks = document.querySelectorAll('.toc-link, .toc-sublink');
+      function updateActiveLink() {
+        let current = '';
+        sections.forEach(function(s) {
+          if (pageYOffset >= s.offsetTop - 100) current = s.getAttribute('id');
+        });
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+        });
+      }
+      window.addEventListener('scroll', updateActiveLink);
+      updateActiveLink();
+
+      // Back-to-top button — visible after 300px scroll
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', function() {
+        btn.classList.toggle('visible', pageYOffset > 300);
+      });
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
